@@ -1,0 +1,45 @@
+
+    <div class="container">       
+  
+    <legend>Edit Tribe</legend>
+    <%= form_for @tribe, url: {action: "update"}, html: {class: "form-horizontal"} do |f| %>
+    
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">Choose Union</label>
+      <div class="col-lg-4">
+          <%= collection_select(:union,:id, @unions,:id, :name, {prompt: }, {class: "form-control"})  %>
+                         
+      </div>
+    </div>
+    
+    <div class="form-group">
+        	
+      <label class="col-lg-2 control-label">Title of Tribe</label>
+      <div class="col-lg-4">
+          <%= f.text_field :name , :class => "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+        	
+      <label class="col-lg-2 control-label">Uran</label>
+        <div class="col-lg-4">
+          <%= f.text_field :uran , :class => "form-control" %>
+        </div>
+    </div>
+       <div class="form-group">
+      <label for="textArea" class="col-lg-2 control-label">Description</label>
+      <div class="col-lg-10">
+          <%= f.text_area :text, :class => "form-control" %>
+        
+        
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <%= link_to "Cancel", tribes_path, class: "btn btn-default" %>
+        <%= f.submit "Update", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+    </div> 

@@ -1,0 +1,47 @@
+<section id="content">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h3 class="panel-title">Add new Union</h3>
+                  </div>
+                  <div class="panel-body">
+                      <%= link_to "New Union", new_union_path, class: "btn btn-primary" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            <!---Start Tribes show--->
+            <div class="row">
+                <% @unions.each do |un| %>
+            <div class="col-lg-4">
+            <div class="bs-component">
+              <div class="list-group">
+                  <%= link_to(un, class: "list-group-item" ) do %>
+                
+                  <h4 class="list-group-item-heading"><%= un.name %> </h4>
+                  <p class="list-group-item-text"> </p>
+              
+                  <% end %>
+              </div> 
+            </div> 
+            </div>
+                <% end %>
+                                               
+            </div>
+            <!---End of Tribes show--> 
+						
+		<!-- divider -->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="solidline">
+				</div>
+			</div>
+		</div>
+		<!-- end divider -->
+		
+		
+	</div>
+	</section>

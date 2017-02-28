@@ -1,0 +1,14 @@
+<script>
+  $(document).ready(function() {
+    $('#unions_select').change(function() {
+      $.ajax({
+        url: "<%= update_tribes_path %>",
+        data: {
+          union_id : $('#unions_select').val()
+        },
+        dataType: "script"
+      });
+    });
+    
+  });
+</script>

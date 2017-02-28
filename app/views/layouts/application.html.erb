@@ -1,0 +1,28 @@
+<%= render :partial => 'layouts/shared/head' %>
+<body>
+    <div id="wrapper">
+        <%= render :partial => 'layouts/shared/menu'%>
+        <% unless current_page?(root_path) %>
+          <%= render :partial => 'layouts/shared/bread' %>
+        <% end %> 
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">      
+                    <%  flash.each do |key, msg| %>
+                      <%= content_tag(:div, msg, class: "alert alert-dismissible alert-#{key}" ) %>
+
+                      <%  end %>
+                  </div>
+              </div>
+           </div>
+
+
+
+          <%= yield %>
+
+          <%= render :partial => 'layouts/shared/footer'%>
+
+      </div>
+      <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+  </body>
+  </html>

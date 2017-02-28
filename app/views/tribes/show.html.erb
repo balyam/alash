@@ -1,0 +1,48 @@
+<section id="content">
+	<div class="container">
+            <!---Start Clans show--->
+
+            <div class="row">
+                <div class="col-md-12">
+                <% @tribe.clans.each do |t| %>
+            <div class="col-lg-4">
+            <div class="bs-component">
+              <div class="list-group">
+                  <%= link_to(t, class: "list-group-item" ) do %>
+                
+                  <h4 class="list-group-item-heading"><%= t.name %> </h4>
+                  <p class="list-group-item-text">Uran: </p>
+              
+                  <% end %>
+              </div> 
+            </div> 
+            </div>
+                <% end %>
+                </div>
+                                               
+            </div>
+
+            <!---End of Clans show-->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+  <div class="panel-heading"><%= @tribe.name %></div>
+  <div class="panel-body">
+<%= @tribe.text %><br>
+
+  </div>
+</div>
+                             <div class="panel panel-default">
+  <div class="panel-body">
+   
+            <%= link_to 'Edit', edit_tribe_path, class: "btn btn-info" %> 
+<%= link_to "Delete", tribe_path, method: :delete, class: "btn btn-danger" %>
+  </div>
+</div>
+
+                        </div>
+                </div>
+          
+			
+                    </div>
+</section>
