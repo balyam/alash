@@ -43,6 +43,6 @@ class UnionsController < ApplicationController
   end
 
   def union_params
-    params.require(:union).permit(:name, :describe)
+    params.require(:union).permit(:name, :namecyr, :describe)
   end
 end

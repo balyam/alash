@@ -27,7 +27,7 @@
     </tr>
   </thead>
   <tbody>
-      <% @persons.seeds.each_with_rel do |n,r| %>
+      <% @persons.seeds.each_with_rel do |_n,r| %>
     <tr>
       <td>1</td>
       <td><%= r.from_node[:name] %></td>

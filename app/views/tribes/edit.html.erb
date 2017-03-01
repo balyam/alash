@@ -7,7 +7,7 @@
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">Choose Union</label>
       <div class="col-lg-4">
-          <%= collection_select(:union,:id, @unions,:id, :name, {prompt: }, {class: "form-control"})  %>
+        <%= collection_select(:union,:id, @unions,:id, :name, {class: "form-control"}) %>
                          
       </div>
     </div>
@@ -28,7 +28,7 @@
     </div>
        <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Description</label>
-      <div class="col-lg-10">
+      <div class="col-lg-8">
           <%= f.text_area :text, :class => "form-control" %>
         
         

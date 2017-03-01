@@ -12,34 +12,41 @@
                   </div>
               </div>
           </div>
-            
-            <!---Start Tribes show--->
-            <div class="row">
-                  <% @tribes.each do |t| %>
-                    <div class="col-lg-3">
-                        <div class="bs-component">
-                            <div class="list-group">
-                                <%= link_to(t, class: "list-group-item" ) do %>
-        
-                                    <h4 class="list-group-item-heading"><%= t.name %> </h4>
-                                    <p class="list-group-item-text">Part of: <%= t.union.name %> </p>
-        
+
+          <!---Start Tribes show--->
+          <div class="row">
+              <% @unions.each do |union| %>
+                <div class="col-lg-4">          
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <%= union.name %>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="nav nav-pills">
+                                <% union.tribes.each do |t| %>
+                                  <li>
+                                      <%= link_to(t) do %> <%= t.name %>
+                                        <span class="badge"></span>
+                                        <% end %>
+                                    </li>
+
                                   <% end %>
-                              </div> 
-                          </div> 
+                              </ul>
+                          </div>
                       </div>
-                    <% end %>
-    
-                </div>
-            <!---End of Tribes show--> 
-        	<!-- divider -->
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="solidline">
-				</div>
-			</div>
-		</div>
-		<!-- end divider -->
-				
-	</div>
-	</section>
+                  </div>
+                <% end %>
+            </div>
+            
+              <!---End of Tribes show--> 
+              <!-- divider -->
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="solidline">
+                      </div>
+                  </div>
+              </div>
+              <!-- end divider -->
+
+          </div>
+      </section>
