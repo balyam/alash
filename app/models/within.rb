@@ -7,6 +7,5 @@ class Within
   type 'WITHIN'
 
   property :name, type: String
-
-  # validates :name, :presence => true
+  
 end

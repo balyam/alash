@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/balyam/alash/app/views/unions/new.html.erb</file>
-            <file>file:/home/balyam/alash/app/views/layouts/application.html.erb</file>
-            <file>file:/home/balyam/alash/app/views/tribes/index.html.erb</file>
-            <file>file:/home/balyam/alash/app/views/unions/edit.html.erb</file>
-            <file>file:/home/balyam/alash/app/models/union.rb</file>
+            <file>file:/home/balyam/alash/app/controllers/persons_controller.rb</file>
+            <file>file:/home/balyam/alash/app/models/person.rb</file>
+            <file>file:/home/balyam/alash/app/models/clan.rb</file>
+            <file>file:/home/balyam/alash/app/controllers/seeds_controller.rb</file>
+            <file>file:/home/balyam/alash/app/views/persons/show.html.erb</file>
+            <file>file:/home/balyam/alash/app/controllers/clans_controller.rb</file>
+            <file>file:/home/balyam/alash/app/views/persons/new.html.erb</file>
+            <file>file:/home/balyam/alash/app/models/belongs_to.rb</file>
         </group>
     </open-files>
 </project-private>

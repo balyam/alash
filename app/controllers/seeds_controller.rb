@@ -10,6 +10,7 @@ class SeedsController < ApplicationController
 
   def new
     @persons = Person.all
+    @orphans = Person.where(parent: false)
   end
 
   def edit; end
@@ -17,11 +18,12 @@ class SeedsController < ApplicationController
   def create
     father = Person.find(params[:person][:father])
     son = Person.find(params[:person][:seeds])
-    seed = Seed.create_seed(father, son)
+    seed = Seed.create_seed(father, son)    
 
     if seed.save
       flash[:success] = "#{seed.from_node.name} adopted #{seed.to_node.name}"
       seed.to_node.update_attribute(:parent, true)
+      HasFather.create_has_father(father, son)
     else
       # flash[:danger] = 'Oooppss!Something went wrong'
       flash[:danger] = flash[:danger].to_a.concat(seed.errors.full_messages)

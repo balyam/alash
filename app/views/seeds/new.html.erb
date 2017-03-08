@@ -13,7 +13,7 @@
        <div class="form-group">
         <label for="select" class="control-label">Choose Father</label>
           <div class="col-lg-4">
-          <%= p.collection_select(:father, @persons,:id, :name, {prompt: "Select category"}, {class: "form-control"})  %>
+          <%= p.collection_select(:father, @persons,:id, :name, {prompt: "Select father"}, {class: "form-control"})  %>
                          
           </div>
        </div>
@@ -21,7 +21,7 @@
       <div class="form-group">
       <label for="select" class="control-label">Choose Son</label>
       <div class="col-lg-4">
-          <%= p.collection_select(:seeds, @persons,:id, :name, {prompt: "Select category"}, {class: "form-control"})  %>
+          <%= p.collection_select(:seeds, @orphans,:id, :name, {prompt: "Select son"}, {class: "form-control"})  %>
                          
       </div>
     </div>

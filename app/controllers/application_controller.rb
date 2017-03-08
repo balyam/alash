@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  before_filter :set_unions_for_menu
+  before_action :set_unions_for_menu
   protect_from_forgery with: :exception
   
   #select Union's titles for menu from DB

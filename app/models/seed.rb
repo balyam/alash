@@ -1,7 +1,7 @@
+# Relationship from father to son. Son has one father only. Always.
 class Seed
   include Neo4j::ActiveRel
 
-  # Relationship from father to son. Son has one father only. Always.
   validate :check_nodes
   creates_unique
   from_class :Person

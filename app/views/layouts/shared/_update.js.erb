@@ -1,14 +1,25 @@
 <script>
-  $(document).ready(function() {
+    $(document).ready(function() {
     $('#unions_select').change(function() {
-      $.ajax({
-        url: "<%= update_tribes_path %>",
-        data: {
-          union_id : $('#unions_select').val()
-        },
-        dataType: "script"
-      });
+    $.ajax({
+    url: "<%= polymorphic_path([:update_tribes, controller_name]) %>",
+    data: {
+    union_id : $('#unions_select').val()
+    },
+    dataType: "script"
     });
-    
-  });
+    });
+
+    $('#tribes_select').change(function() {
+      $.ajax({
+        url: "<%= polymorphic_path([:update_clans, controller_name]) %>",
+          data: {
+            tribe_id : $('#tribes_select').val()
+    },
+    dataType: "script"
+    });
+    });
+
+    });  
+
 </script>

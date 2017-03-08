@@ -1,5 +1,5 @@
 class PersonsController < ApplicationController
-  before_action :set_person, only: [:show, :update, :destroy, :edit]
+  before_action :set_person, only: [:show, :update, :destroy, :edit, :addson]
 
   def index
     @persons = Person.all
@@ -24,6 +24,18 @@ class PersonsController < ApplicationController
       flash[:danger] = 'Something wrong'
     end
   end
+  
+  def update_tribes
+    # update list of tribe based on selected union
+    union = Union.find(params[:union_id])
+    @tribes = union.tribes.map { |a| [a.name, a.id] }
+  end
+    
+  def update_clans
+    # updates clans based on tribe selected
+    tribe = Tribe.find(params[:tribe_id])
+    @clans = tribe.clans.map { |a| [a.name, a.id]}
+  end
 
   def edit; end
 
@@ -37,6 +49,10 @@ class PersonsController < ApplicationController
     redirect_to persons_path
     flash[:success] = "#{@person.name} was successfully destroyed."
   end
+  
+  def addson
+    render 'addson'
+  end
 
   private
 
@@ -46,6 +62,7 @@ class PersonsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def person_params
-    params.require(:person).permit(:name, :status, :text, :sex, :generation, :latname, :clantitle, :tribetitle, :parent)
+    params.require(:person).permit(:name, :status, :text, :sex, :myclan,
+                                   :generation, :latname, :tribetitle, :parent)
   end
 end

@@ -68,6 +68,6 @@ class ClansController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def clan_params
-    params.require(:clan).permit(:name, :text, :tribe)
+    params.require(:clan).permit(:name, :namecyr, :text, :tribe)
   end
 end

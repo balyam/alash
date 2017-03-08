@@ -1,41 +1,48 @@
 <section id="content">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="panel panel-info">
-          <div class="panel-heading">
-            <h3 class="panel-title">Add yourself</h3>
-          </div>
-            <div class="panel-body">
-             <%= link_to "Add Person", new_person_path, class: "btn btn-info" %>
-             <%= link_to "Adopt Person", new_seed_path, class: "btn btn-info" %>
+    <div class="container">
+        <div class="row"> 
+                <div class='col-md-6'>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <%= link_to "I know my tribe", new_person_path, class: "btn btn-success btn-lg btn-block" %>                            
+                        </div> 
+                    </div>
+                </div>                
+                <div class='col-md-6'>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <%= link_to "I don't know my tribe", new_seed_path, class: "btn btn-warning btn-lg btn-block" %>                             
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
-      </div>
-    </div>
-            
+
             <!---Start --->
             <div class="row">
-              <div class="col-md-12">
-                <% @persons.each do |t| %>
-                           
-                  <%= link_to(t) do%>  
-                  <span class="label label-info"><%= t.name %> </span> 
-                  <% end %>
-                       
-                <% end %>
-                                               
-              </div>
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <% @persons.each do |t| %>
+                              <%= link_to(t) do%>  
+                                <span class="label label-info"><%= t.name %> </span> 
+                              <% end %>
+                            <% end %>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
             <!---End of Tribes show--> 
-        	<!-- divider -->
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="solidline">
-				</div>
-			</div>
-		</div>
-		<!-- end divider -->
-				
-	</div>
-	</section>
+            <!-- divider -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="solidline">
+                    </div>
+                </div>
+            </div>
+            <!-- end divider -->
+
+        </div>
+    </section>

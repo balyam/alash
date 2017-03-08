@@ -2,6 +2,7 @@ class Clan
   include Neo4j::ActiveNode
 
   property :name, type: String
+  property :namecyr, type: String
   property :text, type: String, default: 'Fill the form for clan'
 
   validates :name, presence: true

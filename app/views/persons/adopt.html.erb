@@ -12,7 +12,7 @@
        <div class="form-group">
         <label for="select" class="control-label">Choose Father</label>
           <div class="col-lg-4">
-          <%= collection_select(:person, :father, @persons,:id, :name, {prompt: "Select category"}, {class: "form-control"})  %>
+          <%= collection_select(:person, :father, @persons,:id, :name, {prompt: "Select ancestor"}, {class: "form-control"})  %>
                          
           </div>
        </div>
@@ -20,7 +20,7 @@
       <div class="form-group">
       <label for="select" class="control-label">Choose Son</label>
       <div class="col-lg-4">
-          <%= collection_select(:person, :seed, @orphans,:id, :name, {prompt: "Select category"}, {class: "form-control"})  %>
+          <%= collection_select(:person, :seed, @orphans,:id, :name, {prompt: "Select son"}, {class: "form-control"})  %>
                          
       </div>
     </div>

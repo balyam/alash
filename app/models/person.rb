@@ -10,13 +10,12 @@ class Person
   property :status, type: Integer, default: 0
   property :parent, type: Boolean, default: false
   property :generation, type: Integer
-  property :latname, type: String
-  property :clantitle, type: String
-  property :tribetitle, type: String
+  property :latname, type: String    
   property :sex, type: String
 
-  has_one :in, :father, unique: true, origin: :Person
   has_many :out, :seeds, rel_class: :Seed
+  has_one :out, :ancestor, rel_class: :HasFather
+  has_one :out, :myclan, rel_class: :BelongsTo  
 
   private
 

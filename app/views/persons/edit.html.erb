@@ -1,30 +1,29 @@
     <div class="container">   
          
-    <legend>Add Person</legend>
+    <legend>Edit Person</legend>
     <%= form_for @person, url: {action: "update"}, html: {class: "form-horizontal"} do |p| %>
    
     
     <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">Choose Union</label>
+      <label for="select" class="col-lg-2 control-label">Union</label>
       <div class="col-lg-4">
-          <%= p.text_field :parent,   {class: "form-control"}  %>
+          <%= p.text_field nil, {class: "form-control", value: "#{@person.myclan.tribe.union.name}", disabled: ""}  %>
                          
       </div>
     </div>
     <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">Choose Tribe</label>
+      <label for="select" class="col-lg-2 control-label">Tribe</label>
       <div class="col-lg-4">
-         <%= p.text_field :tribetitle,   {class: "form-control"}  %>
+         <%= p.text_field :tribetitle,  {class: "form-control", value: "#{@person.myclan.tribe.name}", disabled: ""}  %>
                          
       </div>
     </div>
     
    
      <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">Choose Clan</label>
+      <label for="select" class="col-lg-2 control-label">Clan</label>
       <div class="col-lg-4">
-          <%= p.text_field :clantitle,   {class: "form-control"}  %>
-                         
+          <%= p.text_field :myclan, {class: "form-control", value: "#{@person.myclan.name}", disabled: ""}  %>                         
       </div>
     </div>
     
@@ -45,7 +44,7 @@
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <%= link_to "Cancel", :back, class: "btn btn-default" %>
-        <%= p.submit "Create", class: "btn btn-primary" %>
+        <%= p.submit "Edit", class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>

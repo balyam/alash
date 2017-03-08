@@ -1,28 +1,27 @@
-<%= render 'layouts/shared/update.js' %> 
 <div class="container">   
-    <legend>Add Person</legend>
+    <legend>Add Son for Person</legend>
     <%= form_for @person, url: {action: "create"}, html: {class: "form-horizontal"} do |p| %>
 
 
         <div class="form-group">
-            <label for="select" class="col-lg-2 control-label">Choose Union</label>
+            <label for="select" class="col-lg-2 control-label">Union</label>
             <div class="col-lg-4">
-                <%= collection_select(:union,:id, @unions,:id, :name, {prompt: "Select Union"}, { class: "form-control", id: 'unions_select' })  %>
+                
 
               </div>
           </div>
           <div class="form-group">
-              <label for="select" class="col-lg-2 control-label">Choose Tribe</label>
+              <label for="select" class="col-lg-2 control-label">Tribe</label>
               <div class="col-lg-4">
-                  <%= p.collection_select(nil, @tribes, :id, :name, {prompt: "Select Tribe"}, {class: "form-control", id: 'tribes_select'})  %>
+                  
 
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="select" class="col-lg-2 control-label">Choose Clan</label>
+                <label for="select" class="col-lg-2 control-label">Clan</label>
                 <div class="col-lg-4">
-                    <%= p.collection_select(:myclan, @clans, :id, :name, {prompt: "Select Clan"}, {class: "form-control", id: 'clans_select'})  %>
+                   
 
                   </div>
               </div>

@@ -1,52 +1,54 @@
 <section id="content">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="panel panel-default">
-  <div class="panel-heading"><%= @person.name %></div>
-  <div class="panel-body">
-<%= @person.text %><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><%= @person.name %></div>
+                    <div class="panel-body">
+                        <%= @person.text %><br>
 
-  </div>
-</div>
-                             <div class="panel panel-default">
-  <div class="panel-body">
-   
-            <%= link_to 'Edit', edit_person_path, class: "btn btn-info" %> 
-<%= link_to "Delete", person_path, method: :delete, class: "btn btn-danger" %>
-  </div>
-</div>
-
-                        </div>
-                    <!-- divider -->
-                
-		<div class="row">
-			<table class="table table-striped table-hover ">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Father</th>
-      <th>Son</th>
-      <th>Son ID</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @person.seeds.each_rel do |r| %>
-    <tr>
-      <td>1</td>
-      <td><%= r.from_node[:name] %></td>
-      <td><%= link_to(r.to_node[:name], r.to_node) %> </td>
-      <td><%= r.to_node[:uuid] %> </td>
-    </tr>
-    <% end %>
-    </tbody>
-</table> 
-		</div>
-		<!-- end divider -->
-                </div>
-           
-
-
-			
                     </div>
-</section>
+                </div>     
+                
+                
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class='col-md-3'>
+                    <%= link_to 'Edit', edit_person_path, class: "btn btn-success btn-block" %> 
+                </div>                         
+                        <div class='col-md-3'>
+                    <%= link_to 'Add son', addson_person_path, class: 'btn btn-info btn-block' %> 
+                </div>
+                             <div class='col-md-3'>
+                    <%= link_to "Delete", person_path, method: :delete, class: "btn btn-danger btn-block" %>
+                </div>                         
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">                    
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            Taipa: <%= @person.myclan.tribe.name if @person.myclan %>
+                        </li>
+                        <li class="list-group-item">
+                            Ruy: <%= link_to(@person.myclan.name, @person.myclan) if @person.myclan %>
+                        </li>
+                        
+                        <li class="list-group-item">
+                            Ancestor: <%= link_to(@person.ancestor.name, @person.ancestor) if @person.ancestor %>
+                        </li>
+
+                        <% @person.seeds.each_rel do |r| %>
+                          <li class="list-group-item"> 
+                              <%= link_to(r.to_node[:name], r.to_node) %> 
+                          </li>
+                        <% end %>
+
+                    </ul>
+                </div>
+            </div>
+            <!-- divider -->            
+            <!-- end divider -->
+
+        </div>
+    </section>
