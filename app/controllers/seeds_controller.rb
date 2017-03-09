@@ -22,10 +22,9 @@ class SeedsController < ApplicationController
 
     if seed.save
       flash[:success] = "#{seed.from_node.name} adopted #{seed.to_node.name}"
-      seed.to_node.update_attribute(:parent, true)
+      #seed.to_node.update_attribute(:parent, true)
       HasFather.create_has_father(father, son)
-    else
-      # flash[:danger] = 'Oooppss!Something went wrong'
+    else      
       flash[:danger] = flash[:danger].to_a.concat(seed.errors.full_messages)
     end
     redirect_to new_seed_path

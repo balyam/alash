@@ -1,6 +1,8 @@
 class HasFather
   include Neo4j::ActiveRel
 
+  after_create :create_seed_rel
+  #after_create :update_parent
   creates_unique
   from_class :Person
   to_class :Person
@@ -8,7 +10,18 @@ class HasFather
   
    # method ActiveRel#create here
   def self.create_has_father(father, son)
-    create(from_node: son, to_node: father)
+    create(from_node: son, to_node: father)    
+  end
+  
+  private
+  
+  # Callback creates Seeds relation at the same time with HasFather
+  def create_seed_rel
+    Seed.create_seed(to_node, from_node)
+  end
+  
+  def update_parent
+    self.from_node.update_attribute(:parent, true)
   end
   
 end

@@ -12,10 +12,10 @@ class Person
   property :generation, type: Integer
   property :latname, type: String    
   property :sex, type: String
-
-  has_many :out, :seeds, rel_class: :Seed
+  
   has_one :out, :ancestor, rel_class: :HasFather
-  has_one :out, :myclan, rel_class: :BelongsTo  
+  has_one :out, :myclan, rel_class: :BelongsTo
+  has_many :out, :seeds, rel_class: :Seed
 
   private
 

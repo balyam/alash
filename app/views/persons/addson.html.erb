@@ -1,50 +1,50 @@
 <div class="container">   
-    <legend>Add Son for Person</legend>
-    <%= form_for @person, url: {action: "create"}, html: {class: "form-horizontal"} do |p| %>
+    <legend>Add Son for Person: <%= @person.name %> </legend>
 
-
-        <div class="form-group">
-            <label for="select" class="col-lg-2 control-label">Union</label>
-            <div class="col-lg-4">
-                
-
-              </div>
-          </div>
-          <div class="form-group">
-              <label for="select" class="col-lg-2 control-label">Tribe</label>
-              <div class="col-lg-4">
-                  
+    <div class="row">
+        <%= form_for @son, url: {action: "create"}, html: {class: "form-horizontal"} do |p| %>
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Name of Person</label>
+                    <div class="col-lg-4">
+                        <%= p.text_field :name , { class: "form-control", value: "Insert name" } %>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="textArea" class="col-lg-3 control-label">Description</label>
+                      <div class="col-lg-8">
+                          <%= p.text_area :text, class: "form-control" %>
+                          <% if @person.myclan %>
+                          <%= p.hidden_field(:myclan, value: @person[:myclan][:id]) %>
+                          <% end %>
+                          <%= p.hidden_field(:ancestor, value: @person[:id]) %>
+                          
+                        </div>
+                    </div>
 
                 </div>
-            </div>
-
-            <div class="form-group">
-                <label for="select" class="col-lg-2 control-label">Clan</label>
-                <div class="col-lg-4">
-                   
-
-                  </div>
-              </div>
-
-              <div class="form-group">
-
-                  <label class="col-lg-2 control-label">Name of Person</label>
-                  <div class="col-lg-4">
-                      <%= p.text_field :name , class: "form-control" %>
+                <div class="col-md-4"> 
+                    <div class="list-group">
+                        <%= link_to(@person.myclan.tribe.union, class: "list-group-item") do  %>
+                            <h4 class="list-group-item-heading">His union is <%= @person.myclan.tribe.union.name %></h4>                            
+                        <% end %>
+                        <%= link_to(@person.myclan.tribe, class: "list-group-item") do  %>
+                            <h4 class="list-group-item-heading">His tribe is <%= @person.myclan.tribe.name %></h4>                            
+                        <% end %>
+                        <%= link_to(@person.myclan, class: "list-group-item") do  %>
+                            <h4 class="list-group-item-heading">His clan is <%= @person.myclan.name %></h4>                            
+                        <% end %>                        
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="textArea" class="col-lg-2 control-label">Description</label>
-                    <div class="col-lg-10">
-                        <%= p.text_area :text, class: "form-control" %>
-                      </div>
-                  </div>
 
-                  <div class="form-group">
-                      <div class="col-lg-10 col-lg-offset-2">
-                          <%= link_to "Cancel", :back, class: "btn btn-default" %>
-                            <%= p.submit "Create", class: "btn btn-primary" %>
-                          </div>
-                      </div>
-                    <% end %>
-                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <%= link_to "Cancel", :back, class: "btn btn-default" %>
+                          <%= p.submit "Create", class: "btn btn-primary" %>
+                        </div>
+                    </div>
+                  <% end %>
+              </div>
+
+          </div>
+

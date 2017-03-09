@@ -16,7 +16,7 @@ class PersonsController < ApplicationController
   def create
     @person = Person.new(person_params)
 
-    if @person.save
+    if @person.save      
       redirect_to @person
       flash[:success] = 'Person was created!'
     else
@@ -51,6 +51,7 @@ class PersonsController < ApplicationController
   end
   
   def addson
+    @son = Person.new
     render 'addson'
   end
 
@@ -63,6 +64,6 @@ class PersonsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def person_params
     params.require(:person).permit(:name, :status, :text, :sex, :myclan,
-                                   :generation, :latname, :tribetitle, :parent)
+                                   :generation, :latname, :parent, :ancestor, :seeds)
   end
 end

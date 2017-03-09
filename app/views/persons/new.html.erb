@@ -2,8 +2,6 @@
 <div class="container">   
     <legend>Add Person</legend>
     <%= form_for @person, url: {action: "create"}, html: {class: "form-horizontal"} do |p| %>
-
-
         <div class="form-group">
             <label for="select" class="col-lg-2 control-label">Choose Union</label>
             <div class="col-lg-4">
@@ -14,7 +12,7 @@
           <div class="form-group">
               <label for="select" class="col-lg-2 control-label">Choose Tribe</label>
               <div class="col-lg-4">
-                  <%= p.collection_select(nil, @tribes, :id, :name, {prompt: "Select Tribe"}, {class: "form-control", id: 'tribes_select'})  %>
+                  <%= collection_select(:tribe, :id , @tribes, :id, :name, {prompt: "Select Tribe"}, {class: "form-control", id: 'tribes_select'})  %>
 
                 </div>
             </div>
