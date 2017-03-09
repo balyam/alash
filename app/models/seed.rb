@@ -17,10 +17,16 @@ class Seed
 
   private
 
-  # Check to_node for father. We can't to adopt node, if it already has father.
-  def check_nodes
-    if !to_node.ancestor.eql?(from_node) || to_node.eql?(from_node)
-      errors.add(:check_nodes, "#{from_node.name} не может быть отцом для #{to_node.name}")
+  # HACK:Check to_node for father. We can't to adopt node, if it already has father.
+  def check_nodes    
+   if to_node.ancestor
+     unless to_node.ancestor.eql?(from_node)
+     errors.add(:check_nodes, "#{from_node.name} не может быть отцом для #{to_node.name}")
+   end
+  else
+    if to_node.eql?(from_node)
+    errors.add(:check_nodes, "#{from_node.name} не может быть отцом для #{to_node.name}")
     end
+   end
   end
 end

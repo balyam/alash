@@ -25,6 +25,7 @@
                 </div>
                 <div class="col-md-4"> 
                     <div class="list-group">
+                        <% if @person.myclan %>
                         <%= link_to(@person.myclan.tribe.union, class: "list-group-item") do  %>
                             <h4 class="list-group-item-heading">His union is <%= @person.myclan.tribe.union.name %></h4>                            
                         <% end %>
@@ -33,7 +34,8 @@
                         <% end %>
                         <%= link_to(@person.myclan, class: "list-group-item") do  %>
                             <h4 class="list-group-item-heading">His clan is <%= @person.myclan.name %></h4>                            
-                        <% end %>                        
+                        <% end %>    
+                            <% end %>
                     </div>
                 </div>
 

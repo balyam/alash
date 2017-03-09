@@ -4,6 +4,6 @@ class BelongsTo
   creates_unique
   from_class :Person
   to_class :Clan
-  type 'BELONGS_TO'  
-    
+  type 'BELONGS_TO'
+      
 end

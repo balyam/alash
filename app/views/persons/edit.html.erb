@@ -3,7 +3,7 @@
     <legend>Edit Person</legend>
     <%= form_for @person, url: {action: "update"}, html: {class: "form-horizontal"} do |p| %>
    
-    
+    <% if @person.myclan %>
     <div class="form-group">
       <label for="select" class="col-lg-2 control-label">Union</label>
       <div class="col-lg-4">
@@ -25,7 +25,7 @@
           <%= p.text_field :myclan, {class: "form-control", value: "#{@person.myclan.name}", disabled: ""}  %>                         
       </div>
     </div>
-    
+    <% end %>
     <div class="form-group">
         	
       <label class="col-lg-2 control-label">Name of Person</label>
