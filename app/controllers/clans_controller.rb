@@ -17,45 +17,44 @@ class ClansController < ApplicationController
   end
 
   def create
-    @clan = Clan.new(clan_params)
+    clan = Clan.new(clan_params)
 
-    if @clan.save
-      redirect_to @clan
-      flash[:success] = 'Clan was successfully created.'
-    # format.json { render :show, status: :created, location: @clan }
+    if clan.save
+      redirect_to clan
+      flash[:success] = 'Clan was successfully created.'    
     else
-      flash[:danger] = flash[:danger].to_a.concat(@clan.errors.full_messages)
-      redirect_to new_clan_path
-      # format.json { render json: @clan.errors, status: :unprocessable_entity }
+      flash[:danger] = flash[:danger].to_a.concat(clan.errors.full_messages)
+      redirect_to new_clan_path    
     end
   end
 
   def update
     if @clan.update(clan_params)
       redirect_to @clan
-      flash[:success] = 'Clan was successfully updated.'
-      # format.json { render :show, status: :ok, location: @clan }
+      flash[:success] = 'Clan was successfully updated.'      
     else
-      render :edit
-      # format.json { render json: @clan.errors, status: :unprocessable_entity }
+      flash[:danger] = flash[:danger].to_a.concat(@clan.errors.full_messages)
+      render :edit    
     end
   end
 
   def destroy
-    @clan.destroy
-    redirect_to clans_url
-    flash[:success] = 'Clan was successfully destroyed.'
-      # format.json { head :no_content }
+    if @clan.destroy
+      flash[:success] = 'Clan was successfully destroyed.'    
+    else
+      flash[:danger] = flash[:danger].to_a.concat(@clan.errors.full_messages)
+    end
+    
     end
 
-  def update_tribes
-    # update list of tribe based on selected union
+  # update list of tribe based on selected union
+  def update_tribes    
     union = Union.find(params[:union_id])
     @tribes = union.tribes.map { |a| [a.name, a.id] }
     end
 
-  def update_clans
-    # updates clans based on tribe selected
+  # updates clans based on tribe selected
+  def update_clans    
     Tribe.find(params[:tribe_id])    
   end
 

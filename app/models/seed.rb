@@ -1,6 +1,7 @@
 # Relationship from father to son. Son has one father only. Always.
 class Seed
   include Neo4j::ActiveRel
+  include Neo4j::Timestamps::Updated
 
   validate :check_nodes
   creates_unique
@@ -28,5 +29,10 @@ class Seed
     errors.add(:check_nodes, "#{from_node.name} не может быть отцом для #{to_node.name}")
     end
    end
+  end
+  
+  # If Seed relation was deleted we have to delete HasFather relation
+  def delete_hasfather_rel
+    
   end
 end

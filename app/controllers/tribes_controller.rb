@@ -14,37 +14,32 @@ class TribesController < ApplicationController
   def edit; end
 
   def create
-    @tribe = Tribe.new(tribe_params)
+    tribe = Tribe.new(tribe_params)
 
-    if @tribe.save
-      redirect_to @tribe
-      flash[:success] = 'Tribe was successfully created.'
-      # format.json { render :show, status: :created, location: @tribe }
+    if tribe.save
+      redirect_to tribe
+      flash[:success] = 'Tribe was successfully created.'      
     else
-      flash[:danger] = flash[:danger].to_a.concat(@tribe.errors.full_messages)
-      redirect_to new_tribe_path
-      # format.json { render json: @tribe.errors, status: :unprocessable_entity }
+      flash[:danger] = flash[:danger].to_a.concat(tribe.errors.full_messages)
+      redirect_to new_tribe_path      
     end
     end
 
   def update
     if @tribe.update(tribe_params)
       redirect_to @tribe
-      flash[:success] = 'Tribe was successfully updated.'
-    # format.json { render :show, status: :ok, location: @tribe }
+      flash[:success] = 'Tribe was successfully updated.'    
     else
-      render :edit
-      # format.json { render json: @tribe.errors, status: :unprocessable_entity }
+      flash[:danger] = flash[:danger].to_a.concat(tribe.errors.full_messages)          
     end
+    redirect_to edit_tribe_path
     end
 
   def destroy
     if @tribe.destroy
-
       flash[:info] = 'Tribe was successfully destroyed.'
-
     else
-      flash[:danger] = 'Ooopps! Something gone wrong!'
+      flash[:danger] = flash[:danger].to_a.concat(@tribe.errors.full_messages)
     end
 
     redirect_to tribes_url

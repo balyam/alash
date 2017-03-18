@@ -4,6 +4,7 @@ class Person
   before_destroy :no_parent
 
   validates :name, presence: true
+  validates_length_of :name, maximum: 20
 
   property :name, type: String
   property :text, type: String
@@ -14,7 +15,7 @@ class Person
   property :sex, type: String
   
   has_one :out, :ancestor, rel_class: :HasFather
-  has_one :out, :myclan, rel_class: :BelongsTo
+  has_one :out, :myclan, model_class: :Clan,  rel_class: :BelongsTo
   has_many :out, :seeds, rel_class: :Seed
 
   private

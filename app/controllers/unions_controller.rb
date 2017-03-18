@@ -19,20 +19,22 @@ class UnionsController < ApplicationController
   end
 
   def create
-    @union = Union.new(union_params)
-    if @union.save
+    union = Union.new(union_params)
+    if union.save
       flash[:notice] = 'Union was successfully created.'
       redirect_to unions_path
-
     else
-      flash[:danger] = flash[:danger].to_a.concat(@union.errors.full_messages)
-      render :new
+      flash[:danger] = flash[:danger].to_a.concat(union.errors.full_messages)
+      redirect_to unions_path
      end
   end
 
   def destroy
-    set_union.destroy
-    flash[:notice] = 'Union was deleted'
+    if @union.destroy
+      flash[:notice] = 'Union was deleted'
+    else
+      flash[:danger] = flash[:danger].to_a.concat(@union.errors.full_messages)
+    end    
     redirect_to unions_path
   end
 

@@ -15,14 +15,14 @@
 
           <!---Start Clans show--->
           <div class="row">
-              <% @clans.each do |t| %>
+              <% @clans.each do |clan| %>
                 <div class="col-lg-4">
                     <div class="bs-component">
                         <div class="list-group">
-                            <%= link_to(t, class: "list-group-item" ) do %>
+                            <%= link_to(clan, class: "list-group-item" ) do %>
 
-                                <h4 class="list-group-item-heading"><%= t.name %> </h4>
-                                <p class="list-group-item-text">Within: <%= t.tribe.name %> </p>
+                                <h4 class="list-group-item-heading"><%= clan.name %> </h4>
+                                <p class="list-group-item-text">Within: <%= clan.tribe.name %> </p>
 
                               <% end %>
                           </div> 

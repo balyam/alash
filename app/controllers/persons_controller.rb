@@ -5,23 +5,26 @@ class PersonsController < ApplicationController
     @persons = Person.all
   end
 
-  def show; end
+  def show
+    # List of seven ancestors of person
+    @ancestors = @person.ancestor(rel_length: 1..7)
+  end
 
   def new
     @person = Person.new
     @tribes = Tribe.all
-    @clans = Clan.all
+    @clans = Clan.all.order(:name)
   end
 
   def create
-    @person = Person.new(person_params)
+    person = Person.new(person_params)
 
-    if @person.save      
-      redirect_to @person
+    if person.save      
+      redirect_to person
       flash[:success] = 'Person was created!'
     else
       redirect_to new_person_path
-      flash[:danger] = 'Something wrong'
+      flash[:danger] = flash[:danger].to_a.concat(person.errors.full_messages)      
     end
   end
   
@@ -34,7 +37,7 @@ class PersonsController < ApplicationController
   def update_clans
     # updates clans based on tribe selected
     tribe = Tribe.find(params[:tribe_id])
-    @clans = tribe.clans.map { |a| [a.name, a.id]}
+    @clans = tribe.clans.map { |a| [a.name, a.id] }
   end
 
   def edit; end

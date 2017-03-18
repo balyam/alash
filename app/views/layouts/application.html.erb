@@ -9,19 +9,16 @@
             <div class="row">
                 <div class="col-lg-12">      
                     <%  flash.each do |key, msg| %>
-                      <%= content_tag(:div, msg, class: "alert alert-dismissible alert-#{key}" ) %>
-
+                      <%= content_tag(:div, class: "alert alert-dismissible alert-#{key}" ) do %>                    
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <%= msg %>
+                    <% end %>
                       <%  end %>
                   </div>
               </div>
            </div>
-
-
-
           <%= yield %>
-
           <%= render :partial => 'layouts/shared/footer'%>
-
       </div>
       <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
   </body>

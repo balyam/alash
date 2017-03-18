@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
   before_action :set_unions_for_menu
   protect_from_forgery with: :exception
   
-  #select Union's titles for menu from DB
   private 
+  
+  #select Union's titles for menu from DB
   def set_unions_for_menu
     @unions = Union.all
   end

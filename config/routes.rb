@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
   end
     resources :persons do
+      resources :belongs_to, controller: 'belongs_to'
       member do
         get 'addson'
       end
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
     end
     
   resources :seeds
+  
 
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".
