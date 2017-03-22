@@ -3,10 +3,10 @@ class Tribe
   
   validates :name, presence: true
   validates_length_of :name, maximum: 20
-  validates :union_id, presence: true, on: :create  
+  validates :union_id, presence: true, on: :create
   
   property :name, type: String
-  property :namecyr, type: String
+  property :translitname, type: String
   property :text, type: String, default: 'Fill the form'
   property :uran, type: String
   

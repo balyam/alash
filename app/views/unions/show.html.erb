@@ -1,8 +1,8 @@
 <section id="content">
 	<div class="container">
-            <!---Start Tribes show--->
+            <!---Start Unions show -->
             <div class="row">
-                <% @union.tribes.each do |t| %>
+                <% @union.tribes.order(:name).each do |t| %>
             <div class="col-lg-2">
             <div class="bs-component">
               <div class="list-group">
@@ -16,14 +16,14 @@
                 <% end %>
                                                
             </div>
-            <!---End of Tribes show--> 
+            <!---End of Unions show--> 
 		<div class="row">
 			<div class="col-md-12">
 				<article>
   <div class="panel panel-default">
   <div class="panel-heading"><%= @union.name %></div>
     <div class="panel-body">
-<%= @union.describe %> <br>
+<%= simple_format(@union.describe) %> <br>
     </div>
   </div>	
 <%= link_to "Edit", edit_union_path, class: "btn btn-info" %>

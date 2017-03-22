@@ -3,16 +3,15 @@ class BelongsTo
   include Neo4j::Timestamps::Updated
 
   creates_unique
-  validate :belongs_to_clan_already
+  #validate :belongs_to_clan_already
   from_class :Person
   to_class :Clan
   type 'BELONGS_TO'
-  
+
   private
-  
+
   def belongs_to_clan_already
-    if from_node.myclan
+    return unless from_node.respond_to?(:myclan)
     errors.add("#{from_node.name} belongs to #{from_node.myclan.name} clan already")
-    end
-  end      
+  end
 end

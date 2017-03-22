@@ -2,7 +2,7 @@ class PersonsController < ApplicationController
   before_action :set_person, only: [:show, :update, :destroy, :edit, :addson]
 
   def index
-    @persons = Person.all
+    @persons = Person.all.order(:name)
   end
 
   def show
@@ -19,12 +19,12 @@ class PersonsController < ApplicationController
   def create
     person = Person.new(person_params)
 
-    if person.save      
-      redirect_to person
+    if person.save            
       flash[:success] = 'Person was created!'
+      redirect_to person
     else
-      redirect_to new_person_path
       flash[:danger] = flash[:danger].to_a.concat(person.errors.full_messages)      
+      redirect_to new_person_path
     end
   end
   
@@ -67,6 +67,6 @@ class PersonsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def person_params
     params.require(:person).permit(:name, :status, :text, :sex, :myclan,
-                                   :generation, :latname, :parent, :ancestor, :seeds)
+                                   :generation, :translitname, :ancestor, :seeds)
   end
 end

@@ -3,6 +3,7 @@ class UnionsController < ApplicationController
 
   def index
     # See application_controller
+    #@unions = Union.all
   end
 
   def show; end
@@ -45,6 +46,6 @@ class UnionsController < ApplicationController
   end
 
   def union_params
-    params.require(:union).permit(:name, :namecyr, :describe)
+    params.require(:union).permit(:name, :translitname, :describe, :menu)
   end
 end

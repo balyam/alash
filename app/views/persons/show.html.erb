@@ -56,6 +56,7 @@
                           <li class="list-group-item">
                               Ancestor: <%= link_to(@person.ancestor.name, @person.ancestor) if @person.ancestor %>
                           </li>
+                          <% if @person.seeds.present? %>
                           <li class="list-group-item">
                               <%= @person.name %> has descendants:
                           </li>
@@ -63,7 +64,12 @@
                           <% @person.seeds.each_rel do |r| %>
                             <li class="list-group-item"> 
                                 <%= link_to(r.to_node[:name], r.to_node) %> 
-                            </li>
+                            </li>                            
+                          <% end %>
+                          <% else %>
+                          <li class="list-group-item">
+                              <%= @person.name %> has not descendants.
+                          </li>
                           <% end %>
                           <li class="list-group-item">
                               <%= link_to 'Add son', addson_person_path, class: 'btn btn-info btn-sm' %>
@@ -73,7 +79,16 @@
                           </ul>
                       </div>
                   </div>
-                  <!-- divider -->            
+                  <!-- divider -->
+                  <div class="row">
+                      <div class='col-md-12'>
+                          <div class="panel panel-default">
+                              <div class="panel-body" id="tree-container">
+                                  d3
+                              </div>
+                          </div>
+                      </div>
+                  </div>
                   <!-- end divider -->
 
               </div>

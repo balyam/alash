@@ -13,10 +13,7 @@
                   <div class="form-group">
                       <label for="textArea" class="col-lg-3 control-label">Description</label>
                       <div class="col-lg-8">
-                          <%= p.text_area :text, class: "form-control" %>
-                          <% if @person.myclan %>
-                          <%= p.hidden_field(:myclan, value: @person[:myclan][:id]) %>
-                          <% end %>
+                          <%= p.text_area :text, class: "form-control" %>                          
                           <%= p.hidden_field(:ancestor, value: @person[:id]) %>
                           
                         </div>
@@ -25,7 +22,8 @@
                 </div>
                 <div class="col-md-4"> 
                     <div class="list-group">
-                        <% if @person.myclan %>
+                        <% if @person.myclan.present? %>
+                        <%= p.hidden_field(:myclan, value: @person[:myclan][:id]) %>
                         <%= link_to(@person.myclan.tribe.union, class: "list-group-item") do  %>
                             <h4 class="list-group-item-heading">His union is <%= @person.myclan.tribe.union.name %></h4>                            
                         <% end %>

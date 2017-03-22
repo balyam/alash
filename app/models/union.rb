@@ -5,10 +5,11 @@ class Union
   validates_length_of :name, maximum: 20
   
   property :name, type: String
-  property :namecyr, type: String
+  property :translitname, type: String
   property :describe, type: String
   property :imageurl, type: String
+  property :menu, type: Boolean, default: false
   
   has_many :in, :tribes, origin: :union
-     
+
 end

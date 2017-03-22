@@ -2,7 +2,7 @@ class TribesController < ApplicationController
   before_action :set_tribe, only: [:show, :edit, :update, :destroy]
   
   def index
-    @tribes = Tribe.all
+    @tribes = Tribe.all    
   end
 
   def show; end
@@ -11,7 +11,9 @@ class TribesController < ApplicationController
     @tribe = Tribe.new
   end
 
-  def edit; end
+  def edit
+    @unions = Union.all
+  end
 
   def create
     tribe = Tribe.new(tribe_params)
@@ -26,13 +28,12 @@ class TribesController < ApplicationController
     end
 
   def update
-    if @tribe.update(tribe_params)
-      redirect_to @tribe
+    if @tribe.update(tribe_params)      
       flash[:success] = 'Tribe was successfully updated.'    
     else
       flash[:danger] = flash[:danger].to_a.concat(tribe.errors.full_messages)          
     end
-    redirect_to edit_tribe_path
+    redirect_to @tribe
     end
 
   def destroy
@@ -54,6 +55,6 @@ class TribesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def tribe_params
-    params.require(:tribe).permit(:name, :namecyr, :text, :union, :uran)
+    params.require(:tribe).permit(:name, :translitname, :text, :union, :uran)
   end
 end

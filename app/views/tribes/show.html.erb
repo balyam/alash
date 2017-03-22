@@ -1,6 +1,6 @@
 <section id="content">
     <div class="container">
-        <!---Start Clans show --->
+        <!---Start Tribes to show -->
         <div class="row">
             <div class="col-md-2">
                 <ul class="nav nav-pills">
@@ -13,7 +13,7 @@
         </div>
         <div class="row">           
             <div class="col-md-11 col-md-offset-1">                
-                <% @tribe.union.tribes.each do |t| %>
+                <% @tribe.union.tribes.order(:name).each do |t| %>
                   <div class="col-lg-2">                      
                       <div class="bs-component">
                           <div class="list-group">                              
@@ -28,12 +28,12 @@
 
           </div>
 
-          <!--- End of Clans show-->
+          <!--- End of Tribes show-->
           <div class="row">
               <div class="col-md-8">
                   <div class="panel panel-default">
                       <div class="panel-heading"><%= @tribe.name %></div>
-                      <div class="panel-body"> <%= @tribe.text %><br></div>
+                      <div class="panel-body"> <%= simple_format(@tribe.text) %><br></div>
                   </div>
                   <div class="panel panel-default">
                       <div class="panel-body">
@@ -45,7 +45,7 @@
                   </div>
                   <div class="col-md-4">
                       <div class="list-group">
-                          <% @tribe.clans.each do |t| %>
+                          <% @tribe.clans.order(:name).each do |t| %>
                             <%= link_to(t.name, t, class: "list-group-item" ) %>                          
                             <% end %>                      
                         </div>

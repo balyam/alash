@@ -13,15 +13,15 @@
             </div>
         </div>
             
-            <!---Start Tribes show--->
+            <!---Start Tribes show -->
             <div class="row">
-                <% @unions.each do |un| %>
+                <% @unions.each do |union| %>
             <div class="col-lg-4">
             <div class="bs-component">
               <div class="list-group">
-                  <%= link_to(un, class: "list-group-item text-center" ) do %>
+                  <%= link_to(union, class: "list-group-item text-center" ) do %>
                 
-                  <h4 class="list-group-item-heading"><%= un.name %> </h4>
+                  <h4 class="list-group-item-heading"><%= union.name %> </h4>
                                 
                   <% end %>
               </div> 

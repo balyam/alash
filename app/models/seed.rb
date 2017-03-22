@@ -11,28 +11,24 @@ class Seed
 
   property :name, type: String
 
-  # method ActiveRel#create here
+  # ActiveRel#create here
   def self.create_seed(father, son)
     Seed.create(from_node: father, to_node: son)
   end
 
   private
 
-  # HACK:Check to_node for father. We can't to adopt node, if it already has father.
-  def check_nodes    
-   if to_node.ancestor
-     unless to_node.ancestor.eql?(from_node)
-     errors.add(:check_nodes, "#{from_node.name} не может быть отцом для #{to_node.name}")
-   end
-  else
-    if to_node.eql?(from_node)
-    errors.add(:check_nodes, "#{from_node.name} не может быть отцом для #{to_node.name}")
+  # HACK: Check to_node for father. We can't to adopt node, if it already has father.
+  def check_nodes
+    if to_node.ancestor.present?
+      unless to_node.ancestor.eql?(from_node)
+        errors.add("#{from_node.name} не может быть отцом для #{to_node.name}")
+      end
+    elsif to_node.eql?(from_node)
+        errors.add("#{from_node.name} не может быть отцом самому себе")      
     end
-   end
   end
-  
+
   # If Seed relation was deleted we have to delete HasFather relation
-  def delete_hasfather_rel
-    
-  end
+  def delete_hasfather_rel; end
 end

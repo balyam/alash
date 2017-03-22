@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
-	def index
-	end
+  # HACK: Request is inefficient
+  def index
+    @all_nodes ||= Person.all.size
+  end
 end

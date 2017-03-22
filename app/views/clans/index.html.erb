@@ -11,18 +11,18 @@
                       </div>
                 </div>
               </div>
-          </div>
-
-          <!---Start Clans show--->
+          </div>          
           <div class="row">
-              <% @clans.each do |clan| %>
+              <% @clans.tribe.each_with_rel do |clan, rel| %>
                 <div class="col-lg-4">
                     <div class="bs-component">
                         <div class="list-group">
                             <%= link_to(clan, class: "list-group-item" ) do %>
 
-                                <h4 class="list-group-item-heading"><%= clan.name %> </h4>
-                                <p class="list-group-item-text">Within: <%= clan.tribe.name %> </p>
+                                <h4 class="list-group-item-heading"><%= rel.from_node.name %> </h4>
+                                
+                                <p class="list-group-item-text">Within: <%= clan.name %> </p>
+                                
 
                               <% end %>
                           </div> 
@@ -30,8 +30,7 @@
                   </div>
                 <% end %>
 
-            </div>
-            <!---End of Clans show--> 
+            </div>            
             <!-- divider -->
             <div class="row">
                 <div class="col-lg-12">
