@@ -1,7 +1,9 @@
 <%= render :partial => 'layouts/shared/head' %>
 <body>
     <div id="wrapper">
+    <% cache do %>
         <%= render :partial => 'layouts/shared/menu'%>
+        <% end %>
         <% unless current_page?(root_path) %>
           <%= render :partial => 'layouts/shared/bread' %>
         <% end %> 

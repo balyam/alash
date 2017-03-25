@@ -31,13 +31,13 @@ class PersonsController < ApplicationController
   def update_tribes
     # update list of tribe based on selected union
     union = Union.find(params[:union_id])
-    @tribes = union.tribes.map { |a| [a.name, a.id] }
+    @tribes = union.tribes.order(:name).map { |a| [a.name, a.id] }
   end
     
   def update_clans
     # updates clans based on tribe selected
     tribe = Tribe.find(params[:tribe_id])
-    @clans = tribe.clans.map { |a| [a.name, a.id] }
+    @clans = tribe.clans.order(:name).map { |a| [a.name, a.id] }
   end
 
   def edit; end
