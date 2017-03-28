@@ -1,16 +1,16 @@
 class BelongsToController < ApplicationController
-  before_action :set_person, only: [:show, :new, :create]
+  before_action :set_person, only: %i(show new create)
 
   def show
     @person = Person.where(id: params[:person_id])
   end
 
-  def new    
+  def new
     @tribes = Tribe.all
     @clans = Clan.all
   end
 
-  def create    
+  def create
     clan = Clan.find(params[:person][:myclan])
     belongs = BelongsTo.create(from_node: @person, to_node: clan)
 

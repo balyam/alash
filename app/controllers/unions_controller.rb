@@ -1,9 +1,9 @@
 class UnionsController < ApplicationController
-  before_action :set_union, only: [:show, :edit, :update, :destroy]
+  before_action :set_union, only: %i(show edit update destroy)
 
   def index
     # See application_controller
-    #@unions = Union.all
+    # @unions = Union.all
   end
 
   def show; end
@@ -35,7 +35,7 @@ class UnionsController < ApplicationController
       flash[:notice] = 'Union was deleted'
     else
       flash[:danger] = flash[:danger].to_a.concat(@union.errors.full_messages)
-    end    
+    end
     redirect_to unions_path
   end
 

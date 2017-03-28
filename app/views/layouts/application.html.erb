@@ -1,8 +1,8 @@
 <%= render :partial => 'layouts/shared/head' %>
 <body>
     <div id="wrapper">
-    <% cache do %>
-        <%= render :partial => 'layouts/shared/menu'%>
+        <% cache do %>
+          <%= render :partial => 'layouts/shared/menu'%>
         <% end %>
         <% unless current_page?(root_path) %>
           <%= render :partial => 'layouts/shared/bread' %>
@@ -12,14 +12,18 @@
                 <div class="col-lg-12">      
                     <%  flash.each do |key, msg| %>
                       <%= content_tag(:div, class: "alert alert-dismissible alert-#{key}" ) do %>                    
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <%= msg %>
-                    <% end %>
+                          <button type="button" class="close" data-dismiss="alert">&times;</button>
+                          <%= msg %>
+                        <% end %>
                       <%  end %>
                   </div>
               </div>
-           </div>
-          <%= yield %>
+          </div>
+          <section id="content">
+              <div class="container">
+                  <%= yield %>
+              </div>
+          </section>
           <%= render :partial => 'layouts/shared/footer'%>
       </div>
       <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>

@@ -1,5 +1,5 @@
 class ClansController < ApplicationController
-  before_action :set_clan, only: [:show, :edit, :update, :destroy]
+  before_action :set_clan, only: %i(show edit update destroy)
 
   def index
     @clans = Clan.all

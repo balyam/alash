@@ -1,8 +1,9 @@
 class TribesController < ApplicationController
-  before_action :set_tribe, only: [:show, :edit, :update, :destroy]
-  
+  before_action :set_tribe, only: %i(show edit update destroy)
+  before_action :authenticate_user!, only: %i(new update edit destroy)
+
   def index
-    @tribes = Tribe.all    
+    @tribes = Tribe.all
   end
 
   def show; end
@@ -20,18 +21,18 @@ class TribesController < ApplicationController
 
     if tribe.save
       redirect_to tribe
-      flash[:success] = 'Tribe was successfully created.'      
+      flash[:success] = 'Tribe was successfully created.'
     else
       flash[:danger] = flash[:danger].to_a.concat(tribe.errors.full_messages)
-      redirect_to new_tribe_path      
+      redirect_to new_tribe_path
     end
     end
 
   def update
-    if @tribe.update(tribe_params)      
-      flash[:success] = 'Tribe was successfully updated.'    
+    if @tribe.update(tribe_params)
+      flash[:success] = 'Tribe was successfully updated.'
     else
-      flash[:danger] = flash[:danger].to_a.concat(tribe.errors.full_messages)          
+      flash[:danger] = flash[:danger].to_a.concat(tribe.errors.full_messages)
     end
     redirect_to @tribe
     end

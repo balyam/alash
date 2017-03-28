@@ -1,5 +1,5 @@
 class PersonsController < ApplicationController
-  before_action :set_person, only: [:show, :update, :destroy, :edit, :addson]
+  before_action :set_person, only: %i(show update destroy edit addson)
 
   def index
     @persons = Person.all.order(:name)
@@ -19,21 +19,21 @@ class PersonsController < ApplicationController
   def create
     person = Person.new(person_params)
 
-    if person.save            
+    if person.save
       flash[:success] = 'Person was created!'
       redirect_to person
     else
-      flash[:danger] = flash[:danger].to_a.concat(person.errors.full_messages)      
+      flash[:danger] = flash[:danger].to_a.concat(person.errors.full_messages)
       redirect_to new_person_path
     end
   end
-  
+
   def update_tribes
     # update list of tribe based on selected union
     union = Union.find(params[:union_id])
     @tribes = union.tribes.order(:name).map { |a| [a.name, a.id] }
   end
-    
+
   def update_clans
     # updates clans based on tribe selected
     tribe = Tribe.find(params[:tribe_id])
@@ -52,7 +52,7 @@ class PersonsController < ApplicationController
     redirect_to persons_path
     flash[:success] = "#{@person.name} was successfully destroyed."
   end
-  
+
   def addson
     @son = Person.new
     render 'addson'

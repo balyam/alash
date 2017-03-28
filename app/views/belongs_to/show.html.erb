@@ -1,31 +1,25 @@
 
-<section id="content">
-  <div class="container">
-        	<!-- divider -->
-                
-		<div class="row">
-			<table class="table table-striped table-hover ">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Father</th>
-      <th>Son</th>
-      <th>#</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @person.myclan.each_with_rel do |_n, r| %>
-    <tr>
-      <td>1</td>
-      <td><%= r.from_node[:name] %></td>
-      <td><%= r.to_node[:name] %> </td>
-      <td><%= link_to("delete",person_belongs_to_path(r.from_node.id, r), method: :delete) %> </td>
-    </tr>
-    <% end %>
-    </tbody>
-</table> 
-		</div>
-		<!-- end divider -->
-				
-	</div>
-	</section>
+<!-- divider -->                
+<div class="row">
+    <table class="table table-striped table-hover ">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Father</th>
+                <th>Son</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @person.myclan.each_with_rel do |_n, r| %>
+              <tr>
+                  <td>1</td>
+                  <td><%= r.from_node[:name] %></td>
+                  <td><%= r.to_node[:name] %> </td>
+                  <td><%= link_to("delete",person_belongs_to_path(r.from_node.id, r), method: :delete) %> </td>
+              </tr>
+            <% end %>
+        </tbody>
+    </table> 
+</div>
+<!-- end divider -->

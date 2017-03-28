@@ -1,43 +1,37 @@
 
-<section id="content">
-  <div class="container">
-                      
-      <!---Start Orphans show -->
-      <div class="row">
-          <% @persons.each do |person| %>                           
-             <%= link_to(person) do%>  
-               <span class="label label-info"><%= person.name %> </span> 
-             <% end %>
-                       
-          <% end %>
-          <%= link_to "Adopt persons", new_seed_path, class: "btn btn-info" %>
-      </div>
-      <!---End of Orphans show--> 
-        	<!-- divider -->
-                
-		<div class="row">
-			<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Father</th>
-      <th>Son</th>
-      <th>#</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @persons.seeds.each_with_rel do |_n,r| %>
-    <tr>
-      <td>1</td>
-      <td><%= r.from_node[:name] %></td>
-      <td><%= r.to_node[:name] %> </td>
-      <td><%= link_to("delete", r, method: :delete) %> </td>
-    </tr>
+<!---Start Orphans show -->
+<div class="row">
+    <% @persons.each do |person| %>                           
+      <%= link_to(person) do%>  
+        <span class="label label-info"><%= person.name %> </span> 
+      <% end %>
+
     <% end %>
-    </tbody>
-</table> 
-		</div>
-		<!-- end divider -->
-				
-	</div>
-	</section>
+    <%= link_to "Adopt persons", new_seed_path, class: "btn btn-info" %>
+  </div>
+  <!---End of Orphans show--> 
+  <!-- divider -->
+
+  <div class="row">
+      <table class="table table-striped table-hover">
+          <thead>
+              <tr>
+                  <th>#</th>
+                  <th>Father</th>
+                  <th>Son</th>
+                  <th>#</th>
+              </tr>
+          </thead>
+          <tbody>
+              <% @persons.seeds.each_with_rel do |_n,r| %>
+                <tr>
+                    <td>1</td>
+                    <td><%= r.from_node[:name] %></td>
+                    <td><%= r.to_node[:name] %> </td>
+                    <td><%= link_to("delete", r, method: :delete) %> </td>
+                </tr>
+              <% end %>
+          </tbody>
+      </table> 
+  </div>
+  <!-- end divider -->

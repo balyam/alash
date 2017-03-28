@@ -1,52 +1,48 @@
-<section id="content">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Add new Tribe</h3>
-                    </div>
-                    <div class="panel-body">
-                        <%= link_to "New Tribe", new_tribe_path, class: "btn btn-primary" %>
-                      </div>
-                  </div>
-              </div>
-          </div>
 
-          <!---Start Tribes show -->
-          <div class="row">
-              <% @unions.each do |union| %>
-                <div class="col-lg-4">          
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <%= union.name %>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="nav nav-pills">
-                                <% union.tribes.each do |t| %>
-                                  <li>
-                                      <%= link_to(t) do %> <%= t.name %>
-                                        <span class="badge"></span>
-                                        <% end %>
-                                    </li>
-
-                                  <% end %>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-                <% end %>
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add new Tribe</h3>
             </div>
-            
-              <!---End of Tribes show--> 
-              <!-- divider -->
-              <div class="row">
-                  <div class="col-lg-12">
-                      <div class="solidline">
-                      </div>
-                  </div>
+            <div class="panel-body">
+                <%= link_to "New Tribe", new_tribe_path, class: "btn btn-primary" %>
               </div>
-              <!-- end divider -->
-
           </div>
-      </section>
+      </div>
+  </div>
+
+  <!---Start Tribes show -->
+  <div class="row">
+      <% @unions.each do |union| %>
+        <div class="col-lg-4">          
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <%= union.name %>
+                </div>
+                <div class="panel-body">
+                    <ul class="nav nav-pills">
+                        <% union.tribes.each do |t| %>
+                          <li>
+                              <%= link_to(t) do %> <%= t.name %>
+                                <span class="badge"></span>
+                              <% end %>
+                          </li>
+
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+      <% end %>
+  </div>
+
+  <!---End of Tribes show--> 
+  <!-- divider -->
+  <div class="row">
+      <div class="col-lg-12">
+          <div class="solidline">
+          </div>
+      </div>
+  </div>
+  <!-- end divider -->

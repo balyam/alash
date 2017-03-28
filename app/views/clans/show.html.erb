@@ -1,10 +1,9 @@
-<section id="content">
-    <div class="container">
-        <div class="row">
+       <div class="row">
             <div class="col-md-3">
                 <div class="panel">
+                <% if @clan.tribe.present? %>
                     <ul class="nav nav-pills">
-                        <li class="active">     
+                        <li class="active">                            
                             <%= link_to @clan.tribe.union.name, @clan.tribe.union %>
                             <span class="badge"></span>
                         </li>                        
@@ -12,7 +11,8 @@
                             <%= link_to @clan.tribe.name, @clan.tribe %>
                             <span class="badge"></span>
                         </li>
-                    </ul>          
+                    </ul>
+                    <% end %>       
                 </div>
             </div>
         </div>
@@ -23,14 +23,23 @@
                     <div class="panel-heading"><%= @clan.name %></div>
                     <div class="panel-body">
                         <%= simple_format(@clan.text) %><br>
-
                     </div>
                 </div>
                 <%= link_to 'Edit', edit_clan_path, class: "btn btn-info" %> 
                   <%= link_to "Delete", clan_path, method: :delete, class: "btn btn-danger" %>
-
                 </div>
                 <div class="col-md-4">
+                <ul class="list-group">
+                <% if @clan.tribe.present? %>
+                <li class="list-group-item">
+                Taipa: <%= link_to("Show", clan_within_path(@clan)) %>
+                </li>
+                <% else %>
+                <li class="list-group-item">
+                Taipa: <%= link_to("Create", new_clan_within_path(@clan)) %>
+                </li>
+                <% end %>
+                </ul>
                     <div class="list-group">
                         <div class="panel-heading">Panel heading</div>
                         <a href="#" class="list-group-item">
@@ -42,9 +51,5 @@
                             <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
                         </a>
                     </div>
-
                 </div>
-
             </div>
-        </div>
-    </section>

@@ -1,34 +1,30 @@
-<section id="content">
-	<div class="container">
-            <!---Start Unions show -->
-            <div class="row">
-                <% @union.tribes.order(:name).each do |t| %>
-            <div class="col-lg-2">
-            <div class="bs-component">
+<!---Start Unions show -->
+<div class="row">
+    <% @union.tribes.order(:name).each do |t| %>
+      <div class="col-lg-2">
+          <div class="bs-component">
               <div class="list-group">
                   <%= link_to(t, class: "list-group-item" ) do %>                
-                  <h5 class="list-group-item-heading text-center"><%= t.name %> </h5>              
-              
-                  <% end %>
-              </div> 
+                      <h5 class="list-group-item-heading text-center"><%= t.name %> </h5>              
+
+                    <% end %>
+                </div> 
             </div> 
-            </div>
-                <% end %>
-                                               
-            </div>
-            <!---End of Unions show--> 
-		<div class="row">
-			<div class="col-md-12">
-				<article>
-  <div class="panel panel-default">
-  <div class="panel-heading"><%= @union.name %></div>
-    <div class="panel-body">
-<%= simple_format(@union.describe) %> <br>
-    </div>
-  </div>	
-<%= link_to "Edit", edit_union_path, class: "btn btn-info" %>
-<%= link_to "Delete", union_path, method: :delete, class: "btn btn-danger" %>
-</div>
-</div>
-	</div>
-	</section>
+        </div>
+      <% end %>
+
+  </div>
+  <!---End of Unions show--> 
+  <div class="row">
+      <div class="col-md-12">
+          <article>
+              <div class="panel panel-default">
+                  <div class="panel-heading"><%= @union.name %></div>
+                  <div class="panel-body">
+                      <%= simple_format(@union.describe) %> <br>
+                  </div>
+              </div>	
+              <%= link_to "Edit", edit_union_path, class: "btn btn-info" %>
+                <%= link_to "Delete", union_path, method: :delete, class: "btn btn-danger" %>
+          </div>
+      </div>

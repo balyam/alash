@@ -1,67 +1,63 @@
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <%= form_for :person, url: {action: "create"}, html: {class: "form-horizontal"} do |p| %>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Name of Person</label>
-                    <div class="col-lg-4">                        
-                        <%= p.text_field :name, {class: "form-control", value: "#{@person.name}", disabled: ""}  %>                         
-                    </div>
-                </div>
-                <div class="form-group">
-            <label for="select" class="col-lg-3 control-label">Choose Union</label>
-            <div class="col-lg-4">
-                <%= collection_select(:union,:id, @unions,:id, :name, {prompt: "Select Union"}, { class: "form-control", id: 'unions_select' })  %>
-              </div>
-          </div>
-                 <div class="form-group">
-              <label for="select" class="col-lg-3 control-label">Choose Tribe</label>
-              <div class="col-lg-4">
-                  <%= collection_select(:tribe, :id , @tribes, :id, :name, {prompt: "Select Tribe"}, {class: "form-control", id: 'tribes_select'})  %>
-                </div>
-            </div>
-                <div class="form-group">
-                <label for="select" class="col-lg-3 control-label">Choose Clan</label>
-                <div class="col-lg-4">
-                    <%= p.collection_select(:myclan, @clans, :id, :name, {prompt: "Select Clan"}, {class: "form-control", id: 'clans_select'})  %>
+<div class="row">
+    <div class="col-md-8">
+        <%= form_for :person, url: {action: "create"}, html: {class: "form-horizontal"} do |p| %>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Name of Person</label>
+                <div class="col-lg-4">                        
+                    <%= p.text_field :name, {class: "form-control", value: "#{@person.name}", disabled: ""}  %>                         
                   </div>
               </div>
-                <div class="form-group">
-                    <label class="col-lg-3 control-label">Title of Clan</label>
-                    <div class="col-lg-4">
-                        <%= @person.myclan.name if @person.myclan %>
+              <div class="form-group">
+                  <label for="select" class="col-lg-3 control-label">Choose Union</label>
+                  <div class="col-lg-4">
+                      <%= collection_select(:union,:id, @unions,:id, :name, {prompt: "Select Union"}, { class: "form-control", id: 'unions_select' })  %>
                     </div>
                 </div>
-                
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div class='col-md-2'>
-                    <%= link_to 'Cancel', :back, class: "btn btn-default" %> 
-                </div>                         
-                        <div class='col-md-2'>
-                    <%= p.submit "Create", class: "btn btn-primary" %> 
-                </div>
-                             <div class='col-md-3'>
-                    <%= link_to "Delete", method: :delete, class: "btn btn-danger btn-block" %>
-                </div>                         
+                <div class="form-group">
+                    <label for="select" class="col-lg-3 control-label">Choose Tribe</label>
+                    <div class="col-lg-4">
+                        <%= collection_select(:tribe, :id , @tribes, :id, :name, {prompt: "Select Tribe"}, {class: "form-control", id: 'tribes_select'})  %>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="select" class="col-lg-3 control-label">Choose Clan</label>
+                      <div class="col-lg-4">
+                          <%= p.collection_select(:myclan, @clans, :id, :name, {prompt: "Select Clan"}, {class: "form-control", id: 'clans_select'})  %>
                         </div>
                     </div>
-                <% end %>
-            </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Title of Clan</label>
+                        <div class="col-lg-4">
+                            <%= @person.myclan.name if @person.myclan %>
+                        </div>
+                    </div>
 
-            <div class="col-md-4">
-                <div class="list-group">
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">List group item heading</h4>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    </a>
-                    <a href="#" class="list-group-item">
-                        <h4 class="list-group-item-heading">List group item heading</h4>
-                        <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                    </a>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class='col-md-2'>
+                                <%= link_to 'Cancel', :back, class: "btn btn-default" %> 
+                              </div>                         
+                              <div class='col-md-2'>
+                                  <%= p.submit "Create", class: "btn btn-primary" %> 
+                                </div>
+                                <div class='col-md-3'>
+                                    <%= link_to "Delete", method: :delete, class: "btn btn-danger btn-block" %>
+                                  </div>                         
+                              </div>
+                          </div>
+                        <% end %>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">List group item heading</h4>
+                                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <h4 class="list-group-item-heading">List group item heading</h4>
+                                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>                    
-
-        </div>
-
-    </div>

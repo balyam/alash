@@ -31,7 +31,7 @@ class SeedsController < ApplicationController
   def destroy
     @son = Seed.find(params[:id])
     if @son.destroy
-      flash[:info] = 'Relation was successfully destroyed.'      
+      flash[:info] = 'Relation was successfully destroyed.'
     else
       flash[:danger] = flash[:danger].to_a.concat(@son.errors.full_messages)
     end

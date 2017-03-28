@@ -1,6 +1,6 @@
 class Union
   include Neo4j::ActiveNode
-  
+    
   validates :name, presence: true
   validates_length_of :name, maximum: 20
   
