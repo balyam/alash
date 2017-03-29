@@ -25,8 +25,7 @@
                         <%= simple_format(@clan.text) %><br>
                     </div>
                 </div>
-                <%= link_to 'Edit', edit_clan_path, class: "btn btn-info" %> 
-                  <%= link_to "Delete", clan_path, method: :delete, class: "btn btn-danger" %>
+                <%= render partial: 'layouts/shared/buttons', locals: { model_name: @clan.model_name.singular }%>
                 </div>
                 <div class="col-md-4">
                 <ul class="list-group">

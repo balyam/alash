@@ -16,15 +16,13 @@
   </div>
   <!---End of Unions show--> 
   <div class="row">
-      <div class="col-md-12">
-          <article>
+      <div class="col-md-12">          
               <div class="panel panel-default">
                   <div class="panel-heading"><%= @union.name %></div>
                   <div class="panel-body">
                       <%= simple_format(@union.describe) %> <br>
                   </div>
               </div>	
-              <%= link_to "Edit", edit_union_path, class: "btn btn-info" %>
-                <%= link_to "Delete", union_path, method: :delete, class: "btn btn-danger" %>
+              <%= render partial: 'layouts/shared/buttons', locals: { model_name: @union.model_name.singular } %>        
           </div>
       </div>

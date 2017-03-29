@@ -2,13 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
   resources :unions, :tribes
-  resources :clans do
-    resource :within
-    collection do
-      get 'update_tribes'
-      get 'update_clans'
-    end
-  end
   resources :persons do
     resources :belongs_to, controller: 'belongs_to'
     member do
@@ -19,6 +12,14 @@ Rails.application.routes.draw do
       get 'update_clans'
     end
   end
+  resources :clans do
+    resource :within
+    collection do
+      get 'update_tribes'
+      get 'update_clans'
+    end
+  end
+  
 
   resources :seeds
 

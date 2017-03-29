@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+            <div class="panel-body">
+                <div class='col-md-3'>
+                    <%= link_to('Edit', polymorphic_path([:edit, model_name]), class: "btn btn-success btn-block") %> 
+                  </div>                          
+                  <div class='col-md-3'>
+                      <%= link_to "Delete", polymorphic_path([model_name]), method: :delete, class: "btn btn-danger btn-block" %>
+                    </div>                         
+                </div>
+            </div>  

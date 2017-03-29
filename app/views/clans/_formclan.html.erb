@@ -1,14 +1,3 @@
-<% if @clan.errors.any? %>
-  <div id="error_explanation">
-      <h2><%= pluralize(@clan.errors.count, "error") %> prohibited this clan from being saved:</h2>
-      <ul>
-          <% @clan.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-      </ul>
-  </div>
-<% end %>
-
 <legend>Add Clan</legend>
 <%= form_for @clan, url: {action: "create"}, html: {class: "form-horizontal"} do |c| %>
 

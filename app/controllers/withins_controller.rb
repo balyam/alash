@@ -33,7 +33,7 @@ class WithinsController < ApplicationController
       flash[:danger] = flash[:danger].to_a.concat(within.errors.full_messages)
       end
 
-    redirect_to root_path
+    redirect_to clans_path
   end
 
   private

@@ -9,7 +9,7 @@ class ClansController < ApplicationController
 
   def new
     @clan = Clan.new
-    @tribes = Tribe.all
+    @tribes = Tribe.all.order(:name)
   end
 
   def edit
@@ -44,17 +44,7 @@ class ClansController < ApplicationController
     else
       flash[:danger] = flash[:danger].to_a.concat(@clan.errors.full_messages)
     end
-  end
-
-  # update list of tribe based on selected union
-  def update_tribes
-    union = Union.find(params[:union_id])
-    @tribes = union.tribes.map { |a| [a.name, a.id] }
-  end
-
-  # updates clans based on tribe selected
-  def update_clans
-    Tribe.find(params[:tribe_id])
+    redirect_to clans_path
   end
 
   private
