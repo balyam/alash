@@ -1,4 +1,5 @@
 <!---Start Tribes to show -->
+<% title @tribe.name %>
 <div class="row">
     <div class="col-md-2">
         <ul class="nav nav-pills">
@@ -27,18 +28,28 @@
 
   <!--- End of Tribes show-->
   <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-8">     
           <div class="panel panel-default">
               <div class="panel-heading"><%= @tribe.name %></div>
               <div class="panel-body"> <%= simple_format(@tribe.text) %><br></div>
           </div>
-         <%= render partial: 'layouts/shared/buttons', locals: { model_name: @tribe.model_name.singular }%>
-          </div>
-          <div class="col-md-4">
+          <%= render partial: 'layouts/shared/buttons', locals: { model_name: @tribe.model_name.singular }%>
+      </div>
+      <div class="col-md-4">
+
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <%= @tribe.name %>'s clans </div>
               <div class="list-group">
                   <% @tribe.clans.order(:name).each do |t| %>
-                    <%= link_to(t.name, t, class: "list-group-item" ) %>                          
-                    <% end %>                      
+                    <%= link_to(t, class: "list-group-item") do %>
+                        <h4 class="list-group-item-heading"><%= t.name %></h4>
+                      <% end %>
+                    <% end %>
+
                 </div>
+
+
             </div>
         </div>
+    </div>

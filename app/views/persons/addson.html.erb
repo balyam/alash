@@ -6,7 +6,7 @@
             <div class="form-group">
                 <label class="col-lg-3 control-label">Name of Person</label>
                 <div class="col-lg-4">
-                    <%= p.text_field :name , { class: "form-control", value: "Insert name" } %>
+                    <%= p.text_field :name , { class: "form-control", placeholder: 'Insert name' } %>
                   </div>
               </div>
               <div class="form-group">
@@ -24,7 +24,7 @@
                     <% if @person.myclan.present? %>
                       <%= p.hidden_field(:myclan, value: @person[:myclan][:id]) %>
                       <%= link_to(@person.myclan.tribe.union, class: "list-group-item") do  %>
-                          <h4 class="list-group-item-heading">His union is <%= @person.myclan.tribe.union.name %></h4>                            
+                          <h4 class="list-group-item-heading">His union is <%= @person.myclan.tribe.union.name %></h4>   
                         <% end %>
                         <%= link_to(@person.myclan.tribe, class: "list-group-item") do  %>
                             <h4 class="list-group-item-heading">His tribe is <%= @person.myclan.tribe.name %></h4>                            

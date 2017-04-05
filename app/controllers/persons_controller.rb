@@ -2,7 +2,7 @@ class PersonsController < ApplicationController
   before_action :set_person, only: %i(show update destroy edit addson)
 
   def index
-    @persons = Person.all.order(:name)
+    @persons = Person.all.order(:name).limit(10)
   end
 
   def show

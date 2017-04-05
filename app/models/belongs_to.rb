@@ -12,7 +12,8 @@ class BelongsTo
   private
 
   def belongs_to_clan_already
-    return unless from_node.respond_to?(:myclan)
+    return unless from_node.myclan?
     errors.add("#{from_node.name} belongs to #{from_node.myclan.name} clan already")
+    throw :abort
   end
 end

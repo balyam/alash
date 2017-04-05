@@ -1,0 +1,103 @@
+<div class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">Daulbai</div>
+            <div class="panel-body">
+                <br>
+            </div>
+        </div> 
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <span class="label label-warning">Argyn </span>&#9658;
+                <span class="label label-warning">Karakesek </span>&hellip;
+                <a href="/persons/b01a079c-9562-40b8-8419-27300b21ff5f">  
+                    <span class="label label-info">Boshan </span>
+                </a> &#8658;                          
+                <a href="/persons/65cfa15c-e3a5-4004-a504-2491b56f2055">  
+                    <span class="label label-info">Baibori </span>
+                </a> &#8658;                          
+                <a href="/persons/ecfa3cc9-4aa0-4576-9c43-2515320f86a8">  
+                    <span class="label label-info">Zhugenei </span>
+                </a> &#8658;                          
+                <a href="/persons/a584fb65-da90-49f6-925e-fdb804b5f0de">  
+                    <span class="label label-info">Kedei </span>
+                </a> &#8658;                          
+                <a href="/persons/022dc9f9-c4d8-4d85-a8ed-7028f2773aca">  
+                    <span class="label label-info">Asan </span>
+                </a> &#8658;                          
+                <a href="/persons/6e0f75b4-9585-48ac-8730-bfba931f973c">  
+                    <span class="label label-info">Shybyntai </span>
+                </a> &#8658;                          
+                <a href="/persons/a0505c86-b481-4bfe-ac1a-faae8f50e2a2">  
+                    <span class="label label-info">Baubek </span>
+                </a> &#8658;                          
+                <span class="label label-success">Daulbai </span>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class='col-md-3'>
+                    <a class="btn btn-success btn-block" href="/persons/86aff2b6-7f67-48c0-8d9f-afb1becf2a4e/edit">Edit</a> 
+                </div>                          
+                <div class='col-md-3'>
+                    <a class="btn btn-danger btn-block" rel="nofollow" data-method="delete" href="/persons/86aff2b6-7f67-48c0-8d9f-afb1becf2a4e">Delete</a>
+                </div>                         
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4"> 
+        <div class="list-group">
+            <% if @user.itisme.present? %>                      
+              <%= link_to(@user.itisme.myclan.tribe.union, class: "list-group-item") do  %>
+                  <h4 class="list-group-item-heading">My union is <%= @user.itisme.myclan.tribe.union.name %></h4>
+                <% end %>
+              <% end -%>
+              <a class="list-group-item" href="/">
+                  <h4 class="list-group-item-heading">Men Qazaqpyn </h4>                            
+              </a>                      </div>
+      </div>
+      <div class="col-md-4">                    
+          <ul class="list-group">                     
+
+              <li class="list-group-item">
+                  Taipa: Argyn
+              </li>
+              <li class="list-group-item">
+                  Ruy: <a href="/clans/3cd6fb29-93e4-421f-8868-8f7fd239d634">Karakesek</a>                          </li> 
+              <li class="list-group-item">                              
+                  <a href="/persons/a584fb65-da90-49f6-925e-fdb804b5f0de/belongs_to/3cd6fb29-93e4-421f-8868-8f7fd239d634">Show</a>
+              </li>  </ul></div>
+
+      <div class="col-md-4">
+      <div class="panel panel-default">
+          <div class="panel-heading">Panel heading</div>        
+          <ul class="list-group">
+              <li class="list-group-item">
+                  <span class="badge">14</span>
+                  Cras justo odio
+              </li>
+              <li class="list-group-item">
+                  <span class="badge">2</span>
+                  Dapibus ac facilisis in
+              </li>
+              <li class="list-group-item">
+                  <span class="badge">1</span>
+                  Morbi leo risus
+              </li>
+          </ul>
+      </div>
+  </div>  
+  <!-- divider -->
+  <div class="row">
+      <div class='col-md-12'>
+          <div class="panel panel-default">
+              <div class="panel-body" id="tree-container">
+                  d3
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- end divider -->

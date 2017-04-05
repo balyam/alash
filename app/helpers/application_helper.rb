@@ -16,4 +16,8 @@ module ApplicationHelper
   def active_page(link_path)
     current_page?(link_path) ? 'active' : nil
   end
+
+  def title(text)
+    content_for(:title) {text}
+  end
   end

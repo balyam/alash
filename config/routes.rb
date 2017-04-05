@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   devise_for :users
+  resources :users, only: %i(show)
   root 'home#index'
   resources :unions, :tribes
   resources :persons do

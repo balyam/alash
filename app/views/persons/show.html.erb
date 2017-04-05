@@ -1,3 +1,4 @@
+<% title @person.name %>
 <div class="row">
     <div class="col-md-8">
         <div class="panel panel-default">
@@ -9,7 +10,7 @@
 
         <div class="panel panel-default">
             <div class="panel-body">
-                <% if @person.myclan %>
+                <% if @person.myclan? %>
                   <span class="label label-warning"><%= @person.myclan.tribe.name %> </span>&#9658;
                   <span class="label label-warning"><%= @person.myclan.name %> </span>&hellip;
                 <% end %>
@@ -27,14 +28,13 @@
         <div class="col-md-4">                    
             <ul class="list-group">                     
 
-                <% if @person.myclan %>
+                <% if @person.myclan? %>
                   <li class="list-group-item">
                       Taipa: <%= @person.myclan.tribe.name %>
                   </li>
                   <li class="list-group-item">
-                      Ruy: <%= link_to(@person.myclan.name, @person.myclan) %>                          </li> 
-                  <li class="list-group-item">                              
-                      <%= link_to("Show", person_belongs_to_path(@person, @person.myclan)) %>
+                      Ruy: <%= link_to(@person.myclan.name, @person.myclan) %>                              
+                      <%= link_to("Show", person_belongs_to_path(@person, @person.myclan), class: 'btn btn-info btn-sm') %>
                   </li>                              
                 <% else %>
                   <li class="list-group-item">

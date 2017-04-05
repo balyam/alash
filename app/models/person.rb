@@ -14,5 +14,9 @@ class Person
   has_one :out, :ancestor, rel_class: :HasFather
   has_one :out, :myclan, model_class: :Clan, rel_class: :BelongsTo
   has_many :out, :seeds, rel_class: :Seed
+
+  def myclan?
+    !!self.myclan.present?
+  end
    
 end

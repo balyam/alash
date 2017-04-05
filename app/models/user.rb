@@ -54,4 +54,5 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :out, :itisme, model_class: :Person, rel_class: :ItisMe
 end
