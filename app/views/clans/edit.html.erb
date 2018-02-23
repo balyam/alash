@@ -1,4 +1,4 @@
-
+<%= render 'layouts/shared/update.js' %>
 <legend>Edit Clan</legend>
 <%= form_for @clan, url: {action: "update"}, html: {class: "form-horizontal"} do |c| %>
 
@@ -6,7 +6,7 @@
     <div class="form-group">
         <label for="select" class="col-lg-2 control-label">Union</label>
         <div class="col-lg-4">
-            <%= collection_select(:union, :id, @unions, :id, :name, {required: true }, {class: "form-control"})  %>
+            <%= collection_select(:union, :id, @unions, :id, :name, {required: true }, {class: "form-control", id: "unions_select"})  %>
 
           </div>
       </div>
@@ -14,7 +14,7 @@
           <label for="select" class="col-lg-2 control-label">Tribe</label>
           <div class="col-lg-4">
           <% if @clan.tribe.present? %>
-              <%= collection_select(:tribe, :id, @tribes, :id, :name, { selected: @clan.tribe.id }, {class: "form-control" })  %>
+              <%= collection_select(:tribe, :id, @tribes, :id, :name, { selected: @clan.tribe.id }, {class: "form-control", id: "tribes_select" })  %>
               <% else %>
               <%= collection_select(:tribe, :id, @tribes, :id, :name, class: "form-control")  %>
               <% end %>

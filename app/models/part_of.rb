@@ -7,6 +7,5 @@ class PartOf
   type 'PART_OF'
 
   property :name, type: String
-
-  # validates :name, :presence => true
+   
 end

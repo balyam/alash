@@ -2,7 +2,7 @@ class PersonsController < ApplicationController
   before_action :set_person, only: %i(show update destroy edit addson)
 
   def index
-    @persons = Person.all.order(:name).limit(10)
+    @persons = Person.all.order(:name).limit(20)
   end
 
   def show
@@ -50,8 +50,9 @@ class PersonsController < ApplicationController
   def addson
     @son = Person.new
     render 'addson'
-  end
+  end  
 
+  
   private
 
   def set_person

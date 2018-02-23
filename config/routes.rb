@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :unions, :tribes
   resources :persons do
     resources :belongs_to, controller: 'belongs_to'
+    resources :itis_me, controller: 'itis_me'
     member do
       get 'addson'
     end
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
       get 'update_clans'
     end
   end
-  
 
   resources :seeds
 

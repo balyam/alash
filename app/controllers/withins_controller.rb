@@ -7,7 +7,7 @@ class WithinsController < ApplicationController
     @tribes = Tribe.all
   end
 
-  def create    
+  def create
     tribe = Tribe.where(id: params[:clan][:tribe]).first
     within = Within.create(from_node: @clan, to_node: tribe)
 
@@ -26,12 +26,12 @@ class WithinsController < ApplicationController
   def update; end
 
   def destroy
-  	within = Within.find(params[:clan_id])
+    within = Within.find(params[:clan_id])
     if within.destroy
       flash[:success] = 'Relation was successfully destroyed.'
     else
       flash[:danger] = flash[:danger].to_a.concat(within.errors.full_messages)
-      end
+    end
 
     redirect_to clans_path
   end

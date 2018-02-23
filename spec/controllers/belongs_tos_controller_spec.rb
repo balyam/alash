@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe BelongsTosController, type: :controller do
+RSpec.describe BelongsToController, type: :controller do
 
 end

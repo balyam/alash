@@ -25,7 +25,7 @@ class Seed
         errors.add("#{from_node.name} не может быть отцом для #{to_node.name}")
       end
     elsif to_node.eql?(from_node)
-        errors.add("#{from_node.name} не может быть отцом самому себе")      
+      errors.add("#{from_node.name} не может быть отцом самому себе")
     end
   end
 

@@ -5,13 +5,13 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Father</th>
-                <th>Son</th>
+                <th>Person</th>
+                <th>Clan</th>
                 <th>#</th>
             </tr>
         </thead>
         <tbody>
-            <% @person.myclan.each_with_rel do |_n, r| %>
+            <% @person.myclan.each_rel do |r| %>
               <tr>
                   <td>1</td>
                   <td><%= r.from_node[:name] %></td>

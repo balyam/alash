@@ -17,8 +17,8 @@ class Clan
 
   # Can not be removed if there is tribe
   def clan_has_tribe?
-  	return unless self.tribe.present?
-  	errors.add("#{self.name} has relation with tribe!")
-  	throw :abort
+    return unless tribe.present?
+    errors.add("#{name} has relation with tribe!")
+    throw :abort
   end
 end

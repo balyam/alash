@@ -52,5 +52,5 @@ Rails.application.configure do
   # Neo4j config
   config.neo4j.session.url = 'http://neo4j:kiskis@localhost:7474'
   config.neo4j.session.type = :http
-  config.neo4j.session.path = ENV['NEO4J_URL'] ||'http://localhost:7474'
+  config.neo4j.session.path = ENV['NEO4J_URL'] || 'http://localhost:7474'
 end

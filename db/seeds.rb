@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 query_string = <<query 
-create
-  ( Union { name: 'Ұлы жүз', menu: true }),
+    create
+    ( Union { name: 'Ұлы жүз', menu: true }),
 	(Union { name: 'Орта жүз', menu: true }), 
 	(Union { name: 'Кіші жүз', menu: true }),
 	(Union { name: 'Төре'}),

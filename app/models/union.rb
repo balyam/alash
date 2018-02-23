@@ -11,5 +11,4 @@ class Union
   property :menu, type: Boolean, default: false
   
   has_many :in, :tribes, origin: :union
-
 end

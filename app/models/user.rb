@@ -31,7 +31,7 @@ class User
   validates :sign_in_count, presence: true
   property :current_sign_in_at, type: DateTime
   property :last_sign_in_at, type: DateTime
-  property :current_sign_in_ip, type:  String
+  property :current_sign_in_ip, type: String
   property :last_sign_in_ip, type: String
 
   ## Confirmable
