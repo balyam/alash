@@ -11,11 +11,12 @@ class Person
   property :translitname, type: String
   property :sex, type: String
 
-  has_one :out, :ancestor, rel_class: :HasFather
+  has_one :out, :ancestor, model_class: :Person, rel_class: :HasFather
   has_one :out, :myclan, model_class: :Clan, rel_class: :BelongsTo
   has_many :out, :seeds, rel_class: :Seed
   has_one :in, :user, rel_class: :ItisMe
-
+  has_one :in, :father, rel_class: :HasFather
+  
   def myclan?
     !!self.myclan.present?
   end

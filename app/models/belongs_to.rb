@@ -2,12 +2,10 @@ class BelongsTo
   include Neo4j::ActiveRel
   include Neo4j::Timestamps::Updated
 
-  creates_unique  
+  creates_unique
   from_class :Person
   to_class :Clan
   type 'BELONGS_TO'
-
-  #validate :belongs_to_clan_already
 
   private
 

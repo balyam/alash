@@ -11,7 +11,7 @@ gem 'rails', '~> 5.0.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use Neo4j as the database
-gem 'neo4j', '~> 8.0', '>= 8.0.6'
+gem 'neo4j', '8.1.5'
 gem 'devise-neo4j', '>= 2.1.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

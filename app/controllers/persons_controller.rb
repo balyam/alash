@@ -8,6 +8,7 @@ class PersonsController < ApplicationController
   def show
     # List of seven ancestors of person
     @ancestors = @person.ancestor(rel_length: 1..7)
+    
   end
 
   def new
@@ -50,8 +51,7 @@ class PersonsController < ApplicationController
   def addson
     @son = Person.new
     render 'addson'
-  end  
-
+  end
   
   private
 
