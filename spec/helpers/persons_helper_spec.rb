@@ -11,5 +11,9 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe PersonsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "some context" do
+    it "some block" do
+      puts "expect().to be_my_person"
+    end
+  end
 end

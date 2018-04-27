@@ -5,14 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use Neo4j as the database
-gem 'neo4j', '8.1.5'
 gem 'devise-neo4j', '>= 2.1.1'
+gem 'neo4j', '8.1.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -40,8 +39,8 @@ gem 'turbolinks', '~> 5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~>3.5'
-  gem 'neo4j-rspec', require: false  
+  gem 'neo4j-rspec', require: false
+  gem 'rspec-rails', '~>3.5'  
 end
 
 group :development do
